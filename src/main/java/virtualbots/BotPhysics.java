@@ -11,7 +11,16 @@ public class BotPhysics {
     private double maxTranslationAccel = 3.0;
     private double maxRotationAccel = 2.0;
 
-    public void update(double throttleStraight, double throttleTurn, double timeInterval) {
+
+    
+
+    public void update(double throttleLeft, double throttleRight, double timeInterval) {
+
+        double throttleStraight = 0.0;
+        double throttleTurn = 0.0;
+
+
+
         // update position based on last velocity. Translation only happens in the direction the bot is facing (or opposite)
         double dx = translationSpeed * Math.sin(theta);
         double dy = translationSpeed * Math.cos(theta);
