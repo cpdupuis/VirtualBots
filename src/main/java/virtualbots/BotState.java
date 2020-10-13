@@ -1,7 +1,7 @@
 package virtualbots;
 
 // For now, all bots are drop-center with omni wheels on front and back. That means there are just 2 wheels with drive
-public class BotPhysics {
+public class BotState {
     private static final double frictionAccel = 0.1; // m/s^2
     private double x;
     private double y;
