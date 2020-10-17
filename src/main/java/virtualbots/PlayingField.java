@@ -1,5 +1,5 @@
 package virtualbots;
 
 public interface PlayingField {
-    public boolean checkForScoringCondition(BotRecord botRecord);
+    public boolean checkForScoringCondition(BotState botState);
 }

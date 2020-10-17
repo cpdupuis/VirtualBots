@@ -6,7 +6,7 @@ public class BallCollectionPlayingField implements PlayingField {
     }
 
     @Override
-    public boolean checkForScoringCondition(BotRecord botRecord) {
+    public boolean checkForScoringCondition(BotState botState) {
         // TODO Auto-generated method stub
         return false;
     }
