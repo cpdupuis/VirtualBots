@@ -1,16 +1,16 @@
 package virtualbots;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class BotRunner {
     private final List<BotRecord> botRecords;
     private final BotPhysics botPhysics;
+    private final PlayingField playingField;
 
-    public BotRunner(List<BotRecord> botRecords, BotPhysics botPhysics) {
+    public BotRunner(List<BotRecord> botRecords, BotPhysics botPhysics, PlayingField playingField) {
         this.botRecords = botRecords;
         this.botPhysics = botPhysics;
+        this.playingField = playingField;
     }
 
     public void robotsInit() {

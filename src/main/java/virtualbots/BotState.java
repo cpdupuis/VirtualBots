@@ -8,7 +8,8 @@ public class BotState {
     double theta; // 0 is the y axis, -pi/2 is left, +pi/2 is right
     double translationSpeed;
     double rotationSpeed;
-    double maxTranslationAccel = 3.0;
-    double maxRotationAccel = 2.0;
+    final double maxTranslationAccel = 3.0;
+    final double maxRotationAccel = 2.0;
     long lastUpdateNanos;
+    int score = 0;
 }
