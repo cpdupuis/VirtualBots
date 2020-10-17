@@ -1,5 +1,7 @@
 package virtualbots;
 
+import edu.wpi.first.wpilibj.SpeedController;
+
 // Your virtual robots should implement this interface
 //
 // This interface is based on the methods in the IterativeRobotBase class provided by the WPILib library
@@ -15,8 +17,8 @@ public interface Bot {
 
     // Additional methods for the simulator
     public String getName();
-    public double getLeftThrottle(); // Between -1.0 and 1.0
-    public double getRightThrottle();
+    public SpeedController getLeftSpeedController();
+    public SpeedController getRightSpeedController();
 
 }
 

@@ -25,7 +25,7 @@ public class BotRunner {
         for (var botRecord : botRecords) {
             Bot bot = botRecord.getBot();
             bot.autonomousPeriodic(); // Let the bot react to the world around it
-            botPhysics.tick(botRecord.getBotState(), bot.getLeftThrottle(), bot.getRightThrottle()); // Update the world
+            botPhysics.tick(botRecord.getBotState(), bot.getLeftSpeedController().get(), bot.getRightSpeedController().get()); // Update the world
         }
     }
 

@@ -6,6 +6,12 @@ public class SimSpeedController implements SpeedController {
     private boolean isInverted;
     private double speed;
     private boolean isEnabled;
+
+    public SimSpeedController() {
+        isEnabled = true;
+        speed = 0.0;
+        isInverted = false;
+    }
     
     @Override
     public void pidWrite(double output) {
@@ -19,7 +25,14 @@ public class SimSpeedController implements SpeedController {
 
     @Override
     public double get() {
-        return speed;
+        double throttle = speed;
+        if (!isEnabled) {
+            throttle = 0.0;
+        }
+        if (isInverted) {
+            throttle = -throttle;
+        }
+        return throttle;
     }
 
     @Override
