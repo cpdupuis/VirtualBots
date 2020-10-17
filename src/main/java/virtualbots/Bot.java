@@ -15,6 +15,8 @@ public interface Bot {
 
     // Additional methods for the simulator
     public String getName();
+    public double getLeftThrottle(); // Between -1.0 and 1.0
+    public double getRightThrottle();
 
 }
 
