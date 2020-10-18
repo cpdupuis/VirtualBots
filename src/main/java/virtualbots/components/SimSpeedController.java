@@ -1,4 +1,4 @@
-package virtualbots.controllers;
+package virtualbots.components;
 
 import edu.wpi.first.wpilibj.SpeedController;
 
