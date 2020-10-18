@@ -1,16 +1,19 @@
 package virtualbots;
 
+import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Set;
 
 public class BallCollectionPlayingField implements PlayingField {
     Set<Location> ballLocations;
     private static final double SCORING_DISTANCE = 1.0;
+    private static final SecureRandom random = new SecureRandom();
 
-    public BallCollectionPlayingField() {
+    public BallCollectionPlayingField(int ballCount, double maxX, double maxY) {
         ballLocations = new HashSet<>();
-        // Let's start with just one location
-        ballLocations.add(new Location(99.0, 27.0));
+        for (int i = 0; i<ballCount; ++i) {
+            ballLocations.add(new Location(random.nextDouble() * maxX, random.nextDouble() * maxY));
+        }
     }
 
     @Override
@@ -23,7 +26,6 @@ public class BallCollectionPlayingField implements PlayingField {
                 return true;
             }
         }
-        // TODO Auto-generated method stub
         return false;
     }
 
