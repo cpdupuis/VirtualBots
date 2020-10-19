@@ -7,7 +7,7 @@ public class TerminalGameDisplay implements GameDisplay {
 
     @Override
     public void updateDisplay(BotRecord botRecord) {
-
+        logger.info(botRecord.getName() + ": score=" + botRecord.getScore()+" x="+botRecord.getBotState().x + " y="+botRecord.getBotState().y);
     }
 
     @Override

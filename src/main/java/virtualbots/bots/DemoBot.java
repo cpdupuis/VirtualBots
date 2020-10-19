@@ -21,6 +21,24 @@ public class DemoBot implements Bot {
     @Override
     public void autonomousPeriodic() {
         logger.debug("autonomousPeriodic");
+        Double direction = ballSensor.getBallDirection();
+        if (direction == null) {
+            logger.info("NO MORE BALLS");
+            return;
+        }
+        if (direction > 0.1) {
+            // Fashion! Turn to the left
+            leftSpeedController.set(-0.2);
+            rightSpeedController.set(0.2);
+        } else if (direction < -0.1) {
+            // Fashion! Turn to the right.
+            leftSpeedController.set(0.2);
+            rightSpeedController.set(-0.2);
+        } else {
+            // Go forward. Move ahead. Try to detect it. It's not to late.
+            leftSpeedController.set(0.2);
+            rightSpeedController.set(0.2);
+        }
     }
 
     @Override

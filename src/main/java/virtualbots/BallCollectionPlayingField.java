@@ -50,7 +50,7 @@ public class BallCollectionPlayingField implements PlayingField {
                 bestLocation = ballLocation;
             }
         }
-        ballSensor.setBallDirection(botLocation.getDirection(bestLocation));
+        ballSensor.setBallDirection(botRecord.getBotState().theta - botLocation.getDirection(bestLocation));
         ballSensor.setBallDistance(bestDistance);
     }
 
