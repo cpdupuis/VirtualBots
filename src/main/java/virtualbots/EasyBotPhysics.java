@@ -7,7 +7,7 @@ public class EasyBotPhysics implements BotPhysics {
     @Override
     public void tick(BotState state, double throttleLeft, double throttleRight) {
         long nowNanos = System.nanoTime();
-        long timeIntervalNanos = nowNanos = state.lastUpdateNanos;
+        long timeIntervalNanos = nowNanos - state.lastUpdateNanos;
         state.lastUpdateNanos = nowNanos;
         double throttleStraight = 0.0;
         double throttleTurn = 0.0;

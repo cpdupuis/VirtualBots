@@ -4,9 +4,13 @@ import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import virtualbots.components.BallSensor;
 
 public class BallCollectionPlayingField implements PlayingField {
+    private static final Logger logger = LogManager.getLogger();
     Set<Location> ballLocations;
     private static final double SCORING_DISTANCE = 1.0;
     private static final SecureRandom random = new SecureRandom();
@@ -26,6 +30,7 @@ public class BallCollectionPlayingField implements PlayingField {
         for (var ballLocation: ballLocations) {
             if (botLocation.getDistance(ballLocation) < SCORING_DISTANCE) {
                 // The robot picked up the ball!
+                logger.info("FOUND A BALL BOT="+botLocation+" ball="+ballLocation);
                 ballLocations.remove(ballLocation);
                 return true;
             }
