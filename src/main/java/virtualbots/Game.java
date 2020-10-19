@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class Game {
     private static final SecureRandom random = new SecureRandom();
     private static final int BALL_COUNT = 1;
-    private static final int TICK_INTERVAL_NANOS = 10 * 1000 * 1000; // 10 milliseconds
+    private static final int TICK_INTERVAL_MILLIS = 10; // 10 milliseconds
     // Everything on the field is generated in the rectangle defined by (0,0) and (maxX,maxY)
     // (though there are no barriers at this point)
     private final List<BotRecord> botRecords;
@@ -43,7 +43,7 @@ public class Game {
         botRunner.autonomousInit();
         while (System.nanoTime() - startTime < timeInterval) {
             botRunner.autonomousPeriodic();
-            Thread.sleep(0, TICK_INTERVAL_NANOS);
+            Thread.sleep(TICK_INTERVAL_MILLIS);
         }
         Optional<BotRecord> optWinner = botRecords.stream().collect(Collectors.maxBy(botRecordComparator));
         optWinner.ifPresent(winner -> gameDisplay.displayWinner(winner));
