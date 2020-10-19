@@ -37,6 +37,7 @@ public class BotRunner {
             if (playingField.checkForScoringCondition(botRecord.getBotState())) {
                 botRecord.incrementScore();
             }
+            playingField.updateSimulatedSensors(botRecord);
             gameDisplay.updateDisplay(botRecord);
         }
     }

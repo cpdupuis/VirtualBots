@@ -18,6 +18,8 @@ public class BallCollectionPlayingField implements PlayingField {
         }
     }
 
+    // Checks to see if the bot has found a ball. If so, the ball is removed
+    // from the game.
     @Override
     public boolean checkForScoringCondition(BotState botState) {
         Location botLocation = new Location(botState.x, botState.y);
@@ -31,9 +33,7 @@ public class BallCollectionPlayingField implements PlayingField {
         return false;
     }
 
-    // Returns negative if bot should turn left or positive to turn right. Values range from -Pi to +Pi
-    // Returns null if there are no balls
-    public void updateBallSensor(BotRecord botRecord) {
+    public void updateSimulatedSensors(BotRecord botRecord) {
         double bestDistance = Double.MAX_VALUE;
         Location bestLocation = null;
         BallSensor ballSensor = botRecord.getBot().getBallSensor();
