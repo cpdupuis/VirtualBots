@@ -24,6 +24,14 @@ public class Location {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
+    // Get the absolute direction from this location to the target
+    // Uses standard coordinate system, with 0 radians being in the positive X direction,
+    // positive being rotation counter-clockwise and negative being clockwise
+    // Result is between -Pi and +Pi
+    public double getDirection(Location target) {
+        return Math.atan2(target.y -this.y, target.x - this.x);
+    }
+
     @Override
     public int hashCode() {
         return (int) (3.0 * x + 7.0 * y);

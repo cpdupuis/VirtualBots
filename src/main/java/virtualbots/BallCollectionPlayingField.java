@@ -4,6 +4,8 @@ import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Set;
 
+import virtualbots.components.BallSensor;
+
 public class BallCollectionPlayingField implements PlayingField {
     Set<Location> ballLocations;
     private static final double SCORING_DISTANCE = 1.0;
@@ -27,6 +29,29 @@ public class BallCollectionPlayingField implements PlayingField {
             }
         }
         return false;
+    }
+
+    // Returns negative if bot should turn left or positive to turn right. Values range from -Pi to +Pi
+    // Returns null if there are no balls
+    public void updateBallSensor(BotRecord botRecord) {
+        double bestDistance = Double.MAX_VALUE;
+        Location bestLocation = null;
+        BallSensor ballSensor = botRecord.getBot().getBallSensor();
+        if (ballLocations.isEmpty()) {
+           ballSensor.setBallDirection(null);
+           ballSensor.setBallDistance(null);
+            return;
+        }
+        Location botLocation = new Location(botRecord.getBotState().x, botRecord.getBotState().y);
+        for (Location ballLocation : ballLocations) {
+            double distance = botLocation.getDistance(ballLocation);
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                bestLocation = ballLocation;
+            }
+        }
+        ballSensor.setBallDirection(botLocation.getDirection(bestLocation));
+        ballSensor.setBallDistance(bestDistance);
     }
 
 }

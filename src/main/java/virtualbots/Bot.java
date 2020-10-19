@@ -1,6 +1,7 @@
 package virtualbots;
 
 import edu.wpi.first.wpilibj.SpeedController;
+import virtualbots.components.BallSensor;
 
 // Your virtual robots should implement this interface
 //
@@ -19,6 +20,7 @@ public interface Bot {
     public String getName();
     public SpeedController getLeftSpeedController();
     public SpeedController getRightSpeedController();
+    public BallSensor getBallSensor();
 
 }
 

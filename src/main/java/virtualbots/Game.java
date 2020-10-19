@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Game {
     private static final SecureRandom random = new SecureRandom();
-    private static final int BALL_COUNT = 16;
+    private static final int BALL_COUNT = 1;
     private static final int TICK_INTERVAL_NANOS = 10 * 1000 * 1000; // 10 milliseconds
     // Everything on the field is generated in the rectangle defined by (0,0) and (maxX,maxY)
     // (though there are no barriers at this point)
